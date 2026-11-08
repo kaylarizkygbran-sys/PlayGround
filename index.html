@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101619" />
+  <link rel="icon" href="data:," />
+  <title>NEON COAST — Open City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="game" aria-label="Neon Coast open city driving game"></canvas>
+    <div class="vignette"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Coast home"><span class="brand-mark">N</span><span>NEON<span class="brand-light">COAST</span></span></a>
+      <div class="top-center"><span class="live-dot"></span><span id="districtLabel">VESPUCCI BEACH</span><span class="top-divider">/</span><span id="clock">16:42</span></div>
+      <button class="sound-button" id="soundBtn" aria-label="Toggle sound" title="Sound effects">♪ <span>SOUND ON</span></button>
+    </header>
+
+    <section class="mission-card" aria-live="polite">
+      <div class="mission-eyebrow"><span class="target-icon">⌖</span> CURRENT JOB <span class="job-tag">SIDE HUSTLE</span></div>
+      <div class="mission-title" id="missionTitle">A QUICK FAVOR</div>
+      <div class="mission-copy" id="missionCopy">Pick up the package and deliver it across town.</div>
+      <div class="mission-progress"><div class="progress-track"><i id="progressBar"></i></div><span id="progressText">0 / 3</span></div>
+      <div class="mission-reward"><span>JOB PAY</span><strong id="rewardText">$750</strong></div>
+    </section>
+
+    <section class="status-card">
+      <div class="player-line"><div class="avatar">NC</div><div><div class="player-name">JACK MORGAN</div><div class="player-rank"><span>RANK 04</span><span class="rank-line"><i></i></span><span>2,460 RP</span></div></div></div>
+      <div class="cash-line"><span>WALLET</span><strong id="cash">$2,450</strong></div>
+      <div class="heat-line"><span>WANTED</span><div class="stars" id="stars"><b>★</b><b>★</b><b>★</b><b>★</b><b>★</b></div><small id="heatLabel">CLEAN</small></div>
+    </section>
+
+    <div class="location-chip"><span class="pin">⌖</span><div><strong id="locationName">OCEAN DRIVE</strong><small>LOS SANTOS COUNTY</small></div></div>
+
+    <div class="map-panel"><canvas id="minimap" width="180" height="180"></canvas><div class="map-label">CITY MAP <span>↗</span></div><div class="map-north">N</div></div>
+
+    <section class="vehicle-panel" id="vehiclePanel">
+      <div class="vehicle-top"><span class="vehicle-icon">▰</span><div><strong id="vehicleName">SENTINEL XS</strong><small>SPORT • CLASSIC</small></div><span class="engine-dot"></span></div>
+      <div class="vehicle-stats"><div class="speed-wrap"><strong id="speed">000</strong><small>KM/H</small></div><div class="stat-bars"><div><span>ENGINE</span><i class="bar"><b style="width:92%"></b></i></div><div><span>ARMOR</span><i class="bar"><b class="armor" style="width:68%"></b></i></div></div></div>
+    </section>
+
+    <div class="objective-toast" id="toast"><span>✦</span><span id="toastText">JOB UPDATED</span></div>
+
+    <div class="bottom-left"><span class="keycap">M</span><span>PAUSE</span><span class="bottom-sep">•</span><span id="modeLabel">ON FOOT</span></div>
+    <div class="controls-hint" id="controlsHint"><span class="hint-key">W A S D</span><span>MOVE</span><i></i><span class="hint-key">E</span><span>ENTER VEHICLE</span></div>
+    <div class="bottom-right"><span class="keycap">H</span><span>HIDE HUD</span><span class="bottom-sep">•</span><span class="keycap">M</span><span>MAP</span></div>
+
+    <div class="overlay" id="introOverlay">
+      <div class="intro-card">
+        <div class="intro-kicker"><span class="live-dot"></span> WELCOME TO THE COAST</div>
+        <div class="intro-title">YOUR CITY.<br><em>YOUR RULES.</em></div>
+        <p>Sunset is coming. The streets are yours. Make a few quick deliveries, stack your cash, and see where the night takes you.</p>
+        <button class="start-button" id="startBtn"><span>START YOUR STORY</span><b>↗</b></button>
+        <div class="intro-controls"><span><b>W A S D</b> MOVE / DRIVE</span><span><b>E</b> ENTER / EXIT</span><span><b>SPACE</b> HANDBRAKE</span></div>
+      </div>
+      <div class="intro-side"><span class="side-line"></span><span>EST. 1986</span><span class="side-line"></span></div>
+    </div>
+
+    <div class="pause-overlay hidden" id="pauseOverlay"><div class="pause-card"><div class="intro-kicker">NEON COAST</div><h2>TAKE A BREATHER.</h2><p>The city isn't going anywhere.</p><button class="start-button" id="resumeBtn"><span>BACK TO THE STREETS</span><b>↗</b></button><div class="pause-controls">WASD move &nbsp;·&nbsp; E enter / exit &nbsp;·&nbsp; Space handbrake</div></div></div>
+
+    <div class="mission-complete hidden" id="completeBanner"><span>✦</span><div><small>JOB COMPLETE</small><strong>THAT'S HOW IT'S DONE.</strong></div><b id="bonusCash">+$750</b></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
